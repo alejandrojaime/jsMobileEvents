@@ -10,7 +10,7 @@ function addMobileEvents(elemento) {
         var ev = e || window.event || event;
         start.x = ev.screenX || ev.pageX || ev.changedTouches[0].pageX;
         start.y = ev.screenY || ev.pageY || ev.changedTouches[0].pageY;
-    }, false);
+    }, {passive: true});
 
     //Al terminar de moverse guardo la posición final
     elemento.addEventListener('touchend', function(e) {
@@ -18,7 +18,7 @@ function addMobileEvents(elemento) {
         end.x = ev.screenX || ev.pageX || ev.changedTouches[0].pageX;
         end.y = ev.screenY || ev.pageY || ev.changedTouches[0].pageY;
         handleGesure(this);
-    }, false);
+    }, {passive: true});
 
     //Función para lanzar cada evento de forma Cross Browser 
     //(si no se hace así puede no funcionar en todos los móviles).
